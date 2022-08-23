@@ -1,4 +1,4 @@
-import { signUpUser } from './fetch-utils.js';
+import { redirectIfUser, signUpUser } from './fetch-utils.js';
 
 // import functions and grab DOM elements
 const signUp = document.querySelector('form');
@@ -19,3 +19,4 @@ signUp.addEventListener('submit', async (e) => {
 });
 
 // add function for redirect if user is logged in
+redirectIfUser();
