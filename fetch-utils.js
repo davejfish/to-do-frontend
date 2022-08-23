@@ -42,3 +42,17 @@ export async function redirectIfUser() {
         location.replace('./todos');
     }
 }
+
+export async function enforceUser(user) {
+    if (!user) location.replace('../');
+}
+
+export async function logOut() {
+    const response = await fetch(`${BASE_URL}/api/v1/user/sessions`, {
+        method: 'DELETE',
+        credentials: 'include',
+    });
+    if (response.ok) {
+        location.replace('../');
+    }
+}
