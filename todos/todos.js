@@ -1,4 +1,5 @@
-import { enforceUser, getUser } from '../fetch-utils.js';
+import createSignOut from '../components/signOut.js';
+import { enforceUser, getUser, logOut } from '../fetch-utils.js';
 
 
 // State
@@ -7,7 +8,7 @@ let user = null;
 
 // Action Handlers
 async function handlePageLoad() {
-    user = getUser();
+    user = await getUser();
     enforceUser(user);
 
 
@@ -16,11 +17,16 @@ async function handlePageLoad() {
 }
 
 // handlers
+function handleSignOut() {
+    logOut();
+}
+
 
 // Components 
+const SignOut = createSignOut(document.querySelector('.sign-out'), handleSignOut);
 
 function display() {
-    
+    SignOut({ user });
 }
 
 handlePageLoad();
