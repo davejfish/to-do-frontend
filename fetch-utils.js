@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:7890';
+const BASE_URL = 'https://japril-todo-backend.herokuapp.com';
 
 export async function signUpUser(user) {
     const response = await fetch(`${BASE_URL}/api/v1/user/sessions`, {
