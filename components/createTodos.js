@@ -12,7 +12,6 @@ export default function createTodos(ul, handlers) {
 
 function createListEl(todo, { handleUpdateTodo, handleDeleteTodo }) {
     const li = document.createElement('li');
-    li.id = todo.id;
 
     const span = document.createElement('span');
     span.textContent = todo.content;
