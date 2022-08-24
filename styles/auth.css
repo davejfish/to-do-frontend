@@ -1,0 +1,25 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  margin: 20px;
+  border: solid 3px black;
+  box-shadow: 5px 10px;
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin-top: 5px;
+}
+
+label, input {
+  display: block;
+}
