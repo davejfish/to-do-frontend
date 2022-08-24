@@ -23,7 +23,8 @@ function createListEl(todo, { handleUpdateTodo, handleDeleteTodo }) {
     input.checked = todo.finished;
     
     
-    input.addEventListener('change', () => {
+    input.addEventListener('change', (e) => {
+        e.stopImmediatePropagation();
         if (!input.checked) {
             button.setAttribute('id', 'hidden');
         }
@@ -38,7 +39,8 @@ function createListEl(todo, { handleUpdateTodo, handleDeleteTodo }) {
     if (todo.finished === false) {
         button.setAttribute('id', 'hidden');
     }
-    button.addEventListener('click', async () => {
+    button.addEventListener('click', async (e) => {
+        e.stopImmediatePropagation();
         handleDeleteTodo(li.id);
     });
     
