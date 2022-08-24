@@ -67,5 +67,17 @@ export async function insertTodo(props) {
         body: JSON.stringify({ content: props }),
         credentials: 'include',
     });
-    if (response.ok) return response.body;
+    if (response.ok) return await response.json();
+}
+
+export async function getAllTodos() {
+    const response = await fetch(`${BASE_URL}/api/v1/todos`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    });
+    if (response.ok) return await response.json();
 }
