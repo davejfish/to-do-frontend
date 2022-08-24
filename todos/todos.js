@@ -31,7 +31,6 @@ async function handleAddTodo(content) {
 
 async function handleUpdateTodo(todoID) {
     const index = todos.findIndex(i => i.id === todoID);
-    console.log('update index: ', index);
     const oldTodo = todos[index];
     const newTodo = await updateTodo(todoID, { finished: !oldTodo.finished });
     todos.splice(index, 1, newTodo);
@@ -39,7 +38,6 @@ async function handleUpdateTodo(todoID) {
 
 async function handleDeleteTodo(todoID) {
     const index = todos.findIndex(i => i.id === todoID);
-    console.log('index is: ', index);
     await deleteTodo(todoID);
     todos.splice(index, 1);
     display();
