@@ -3,6 +3,7 @@
 export default function createTodos(ul, handlers) {
 
     return ({ todos }) => {
+        console.log('current todos: ', todos);
         ul.innerHTML = '';
         for (const todo of todos) {
             ul.append(createListEl(todo, handlers));
@@ -31,7 +32,7 @@ function createListEl(todo, { handleUpdateTodo, handleDeleteTodo }) {
         else {
             button.removeAttribute('id');
         } 
-        handleUpdateTodo(li.id);
+        handleUpdateTodo(todo.id);
     });
 
     const button = document.createElement('button');
@@ -41,7 +42,8 @@ function createListEl(todo, { handleUpdateTodo, handleDeleteTodo }) {
     }
     button.addEventListener('click', async (e) => {
         e.stopImmediatePropagation();
-        handleDeleteTodo(li.id);
+        console.log('todo id: ', todo.id);
+        handleDeleteTodo(todo.id);
     });
     
     div.append(input, button);
