@@ -1,22 +1,16 @@
 
 
-export default function createTodos(ul, {
-    handleUpdateTodo,
-}) {
+export default function createTodos(ul, handlers) {
 
     return ({ todos }) => {
         ul.innerHTML = '';
         for (const todo of todos) {
-            ul.append(createListEl(todo, {
-                handleUpdateTodo,
-            }));
+            ul.append(createListEl(todo, handlers));
         }
     };
 }
 
-function createListEl(todo, {
-    handleUpdateTodo
-}) {
+function createListEl(todo, { handleUpdateTodo }) {
     const li = document.createElement('li');
     li.id = todo.id;
 
@@ -26,14 +20,17 @@ function createListEl(todo, {
     const div = document.createElement('div');
     const input = document.createElement('input');
     input.type = 'checkbox';
+    input.checked = todo.finished;
     
     
     input.addEventListener('change', () => {
         if (!input.checked) {
             button.setAttribute('id', 'hidden');
-            handleUpdateTodo(todo.id);
         }
-        else button.removeAttribute('id');
+        else {
+            button.removeAttribute('id');
+        } 
+        handleUpdateTodo(li.id);
     });
 
     const button = document.createElement('button');

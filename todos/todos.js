@@ -39,9 +39,7 @@ async function handleUpdateTodo(todoID) {
 // Components 
 const SignOut = createSignOut(document.querySelector('.sign-out'), handleSignOut);
 const AddTodo = addTodo(document.querySelector('form'), handleAddTodo);
-const CreateTodos = createTodos(document.querySelector('ul', {
-    handleUpdateTodo,
-}));
+const CreateTodos = createTodos(document.querySelector('ul'), { handleUpdateTodo });
 
 function display() {
     SignOut({ user });
