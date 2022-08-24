@@ -81,3 +81,16 @@ export async function getAllTodos() {
     });
     if (response.ok) return await response.json();
 }
+
+export async function updateTodo(id, data) {
+    const response = await fetch(`${BASE_URL}/api/v1/todos/${id}`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        credentials: 'include',
+    });
+    return await response.json();
+}

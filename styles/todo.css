@@ -49,3 +49,7 @@ li span, input, button {
 li:hover {
   opacity: .6;
 }
+
+#hidden {
+  display: none;
+}
