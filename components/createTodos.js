@@ -10,7 +10,7 @@ export default function createTodos(ul, handlers) {
     };
 }
 
-function createListEl(todo, { handleUpdateTodo }) {
+function createListEl(todo, { handleUpdateTodo, handleDeleteTodo }) {
     const li = document.createElement('li');
     li.id = todo.id;
 
@@ -38,6 +38,9 @@ function createListEl(todo, { handleUpdateTodo }) {
     if (todo.finished === false) {
         button.setAttribute('id', 'hidden');
     }
+    button.addEventListener('click', async () => {
+        handleDeleteTodo(li.id);
+    });
     
     div.append(input, button);
     li.append(span, div);

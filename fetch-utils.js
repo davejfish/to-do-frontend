@@ -94,3 +94,15 @@ export async function updateTodo(id, data) {
     });
     return await response.json();
 }
+
+export async function deleteTodo(id) {
+    const response = await fetch(`${BASE_URL}/api/v1/todos/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    });
+    return await response.json();
+}

@@ -5,6 +5,7 @@ export default function addTodo(form, handleAddTodo) {
             e.preventDefault();
             const formData = new FormData(form);
             await handleAddTodo(formData.get('todo'));
+            form.reset();
         });
     };
 }
