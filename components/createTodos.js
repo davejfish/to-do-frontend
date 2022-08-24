@@ -3,7 +3,6 @@
 export default function createTodos(ul, handlers) {
 
     return ({ todos }) => {
-        console.log('current todos: ', todos);
         ul.innerHTML = '';
         for (const todo of todos) {
             ul.append(createListEl(todo, handlers));
@@ -42,7 +41,6 @@ function createListEl(todo, { handleUpdateTodo, handleDeleteTodo }) {
     }
     button.addEventListener('click', async (e) => {
         e.stopImmediatePropagation();
-        console.log('todo id: ', todo.id);
         handleDeleteTodo(todo.id);
     });
     
